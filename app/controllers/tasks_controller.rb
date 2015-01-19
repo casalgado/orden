@@ -6,7 +6,8 @@ class TasksController < ApplicationController
   end
 
   def show
-    @tasks = current_user.tasks.where(:due_date => Date.today.beginning_of_day..Date.today.end_of_day)
+    @tasks = Task.all
+    #current_user.tasks.where(:due_date => Date.today.beginning_of_day..Date.today.end_of_day)
   end
 
   def index
