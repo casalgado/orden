@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+var = 1
+10.times do
+	User.create!(username:"User#{var}", email:"example#{var}@email.com", password:"asdfasdf", password_confirmation:"asdfasdf")
+	var += 1
+end
+
