@@ -1,0 +1,18 @@
+
+<%= bootstrap_form_for [@task] do |f| %>
+
+	<%= f.hidden_field :user_id, value: current_user.id %>
+
+	<div class="form-for-task">
+		<div class="text-field"> 
+			<%= f.text_field :name, layout: :horizontal, label: "Tarea"  %>
+		</div>
+		<div class="submit-button">
+			<%= f.submit "Ok" %>
+		</div>
+	</div>
+
+	
+
+<% end %>
+

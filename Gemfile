@@ -9,6 +9,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'devise', '3.4.1'
 gem "faker", '1.4.3'
+gem 'bootstrap_form'
 
 
 group :doc do
