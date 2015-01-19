@@ -8,7 +8,14 @@
 
 var = 1
 10.times do
-	User.create!(username:"User#{var}", email:"example#{var}@email.com", password:"asdfasdf", password_confirmation:"asdfasdf")
+	User.create!(first_name: "User#{var}", last_name: "Last#{var}", email:"example#{var}@email.com", password:"asdfasdf", password_confirmation:"asdfasdf")
 	var += 1
 end
+
+seq = 1
+10.times do
+User.find(1).tasks.create!(name: "Tarea#{seq}", due_date: (Time.now + (seq*5000)), complete: false)
+	seq += 1
+end
+
 
