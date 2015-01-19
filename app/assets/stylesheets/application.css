@@ -16,12 +16,14 @@
 
 .table-heigth {
 	height: 500px;
+	overflow: hidden;
 }
 
 .form-for-task {
 	width: 100%;
 	position: absolute;
 	bottom: 0px;
+	background-color: white;
 }
 
 .text-field {
