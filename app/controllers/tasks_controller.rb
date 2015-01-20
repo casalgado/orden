@@ -3,6 +3,9 @@ class TasksController < ApplicationController
   end
 
   def create
+    @task = Task.new(task_params)
+    @task.save
+    redirect_to task_path(current_user)
   end
 
   def show
@@ -22,5 +25,11 @@ class TasksController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def task_params
+    params.require(:task).permit(:name, :user_id, :due_date)
   end
 end

@@ -2,6 +2,7 @@
 <%= bootstrap_form_for [@task] do |f| %>
 
 	<%= f.hidden_field :user_id, value: current_user.id %>
+	<%= f.hidden_field :due_date, value: Date.today %>
 
 	<div class="form-for-task">
 		<div class="text-field"> 
