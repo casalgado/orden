@@ -19,6 +19,7 @@
 }
 
 .stick-bottom {
+	width: 600px;
 	position: absolute;
 	bottom: 0px;
 }
