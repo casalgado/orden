@@ -1,2 +1,36 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+
+
+
+	
+<div class= "container">
+	<div class= "row">
+		<div class= "col-sm-6 col-xs-12">
+			<h1>Tareas Completadas</h1>
+			<div class="table-heigth">
+				<table class="table table-condensed table-hover table-settings">
+					<tr>
+						<th> Nombre </th>
+						<th> Estado </th>
+					</tr> 
+					<% for task in @tasks %>
+					<tr>
+						<td><%= link_to("#{task.name}", '#') %> </td>
+						<td><%= link_to("Ok", task_complete_path(task)) %> </td>
+					</tr>
+					<% end %>
+				</table>
+
+				
+			</div>
+		</div>
+
+		<div class= "col-sm-6 hidden-xs">
+			<h1> Sidebar </h1>
+		</div>
+		
+	</div>
+</div>
+
+
+
+

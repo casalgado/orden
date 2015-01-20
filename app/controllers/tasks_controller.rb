@@ -11,11 +11,18 @@ class TasksController < ApplicationController
   def show
     @footer = false
     @task  = Task.new
-    @tasks = current_user.tasks.order("created_at ASC")
+    @tasks = current_user.tasks.incomplete.order("created_at ASC")
     #current_user.tasks.where(:due_date => Date.today.beginning_of_day..Date.today.end_of_day)
   end
 
+  def complete
+    @task = Task.find(params[:task_id])
+    @task.update(complete: !@task.complete)
+    redirect_to task_path(current_user)
+  end
+
   def index
+    @tasks = current_user.tasks.completed.order("created_at ASC")
   end
 
   def edit

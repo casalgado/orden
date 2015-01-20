@@ -14,7 +14,7 @@
 					<% for task in @tasks %>
 					<tr>
 						<td><%= link_to("#{task.name}", '#') %> </td>
-						<td><%= link_to("B", "#") %> </td>
+						<td><%= link_to("I", task_complete_path(task)) %> </td>
 					</tr>
 					<% end %>
 				</table>
