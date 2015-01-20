@@ -5,12 +5,13 @@
 	<%= f.hidden_field :due_date, value: Date.today %>
 
 	<div class="form-for-task">
-		<div class="text-field"> 
+		<ul>
+		<li class="text-field"> 
 			<%= f.text_field :name, layout: :horizontal, hide_label: :true, placeholder: "Tarea"  %>
-		</div>
-		<div class="submit-button">
+		</li>
+		<li class="submit-button">
 			<%= f.submit "Ok" %>
-		</div>
+		</li>
 	</div>
 
 	
