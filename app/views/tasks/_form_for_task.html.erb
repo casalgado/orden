@@ -3,6 +3,7 @@
 
 	<%= f.hidden_field :user_id, value: current_user.id %>
 	<%= f.hidden_field :due_date, value: Date.today %>
+	<%= f.hidden_field :complete, value: false %>  <!-- remove this after migration of default -->
 
 	<div class="form-for-task">
 		<ul>
