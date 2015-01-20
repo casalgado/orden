@@ -18,6 +18,11 @@
 
 }
 
+.stick-bottom {
+	position: absolute;
+	bottom: 0px;
+}
+
 .form-for-task {
 	width: 100%;
 	position: absolute;
