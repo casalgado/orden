@@ -53,6 +53,7 @@
 	border: 1px solid gray;
 }
 
-a:hover, a:link, a:visited {
+a:link, a:hover, a:active, a:visited {
 	text-decoration: none;
+	color: #333333;
 }
