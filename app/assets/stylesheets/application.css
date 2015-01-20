@@ -42,7 +42,7 @@
 .text-field {
 	float: left;
 	width: 75%;
-	margin: auto auto auto auto;
+	margin: -14px auto auto auto;
 	border: 1px solid gray;
 }
 
