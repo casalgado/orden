@@ -32,7 +32,6 @@
 	overflow: hidden;
 	bottom: 0px;
 	background-color: white;
-	border: 1px solid gray;
 }
 
 .form-for-task li {
@@ -41,16 +40,14 @@
 
 .text-field {
 	float: left;
-	width: 82%;
+	width: 75%;
 	margin: -18px auto auto auto;
-	border: 1px solid gray;
 }
 
 .submit-button {
 	float: left;
 	width: 18%;
 	margin: auto auto auto auto;
-	border: 1px solid gray;
 }
 
 a:link, a:hover, a:active, a:visited {
