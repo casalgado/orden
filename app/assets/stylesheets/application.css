@@ -26,7 +26,7 @@
 }
 
 .form-for-task {
-	width: 300px;
+	width: 350px;
 	height: 50px;
 	position: absolute;
 	overflow: hidden;
@@ -41,8 +41,8 @@
 
 .text-field {
 	float: left;
-	width: 75%;
-	margin: -14px auto auto auto;
+	width: 78%;
+	margin: -16px auto auto auto;
 	border: 1px solid gray;
 }
 

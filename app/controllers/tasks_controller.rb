@@ -11,7 +11,7 @@ class TasksController < ApplicationController
   def show
     @footer = false
     @task  = Task.new
-    @tasks = Task.all
+    @tasks = current_user.tasks
     #current_user.tasks.where(:due_date => Date.today.beginning_of_day..Date.today.end_of_day)
   end
 
