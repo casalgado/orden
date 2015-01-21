@@ -17,8 +17,10 @@ class Task < ActiveRecord::Base
   		"danger" 
   	elsif num == 2
   		"warning"
-  	else
+  	elsif num == 1
   		"info"
+  	else
+  		nil
   	end 
   end
 
