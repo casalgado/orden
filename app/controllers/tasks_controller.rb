@@ -22,7 +22,7 @@ class TasksController < ApplicationController
   end
 
   def index
-    @tasks = current_user.tasks.completed.order("created_at ASC")
+    @tasks = current_user.tasks.completed.order("name ASC")
   end
 
   def edit

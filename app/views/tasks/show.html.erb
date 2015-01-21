@@ -1,5 +1,6 @@
 
 
+
 	
 <div class= "container">
 	<div class= "row">
@@ -12,14 +13,11 @@
 						<th> Estado </th>
 					</tr> 
 					<% for task in @tasks %>
-					<tr >
-						<td><%= link_to("#{task.name}", '#') %> </td>
-						<td><%= link_to("---", task_complete_path(task)) %> </td>
-					</tr>
+						<%= display_task(task) %>
 					<% end %>
-				</table>
-
 				
+					
+				</table>
 			</div>
 		</div>
 
