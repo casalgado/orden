@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   # Returns an array of days where user has tasks. 
   def days_with_tasks
   	days = []
-  	self.tasks.each do |task|
+  	self.tasks.incomplete.each do |task|
   		days << task.due_date.to_date
   	end	
   	days.uniq!
