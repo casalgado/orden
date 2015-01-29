@@ -38,7 +38,7 @@ class Task < ActiveRecord::Base
   private
 
   def interpret_string
-    self.task
+    self.task.name.split(" ")
     
   end
 

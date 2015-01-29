@@ -21,17 +21,11 @@
 	margin-bottom: 40px;
 }
 
-.stick-bottom {
-	width: 300px;
-	position: absolute;
-	bottom: 0px;
-	border: 1px solid gray;
-}
 
 .form-for-task {
 	width: 300px;
 	height: 50px;
-	position: absolute;
+	position: relative;
 	overflow: hidden;
 	bottom: 0px;
 	background-color: white;
@@ -51,6 +45,26 @@
 	float: left;
 	width: 18%;
 	margin: auto auto auto auto;
+}
+
+.border {
+	border: 1px solid lightgray;
+}
+
+.red-border {
+	border: 1px solid red;
+}
+
+.blue-border {
+	border: 1px solid blue;
+}
+
+.green-border {
+	border: 1px solid green;
+}
+
+.yellow-border {
+	border: 1px solid yellow;
 }
 
 a:link, a:hover, a:active, a:visited {

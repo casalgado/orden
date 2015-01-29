@@ -1,46 +1,45 @@
 
 
 
-<div class="page">	
-<div class= "container">
-	<div class= "row">
-		<div class= "col-sm-6 col-xs-12">
-			<div class="table-heigth">
-				<% for day in current_user.days_with_tasks %>
-					<% if day.to_date == Date.today %>
-						<h1>Hoy</h1>
-					<% elsif day.to_date == Date.today.next_day %>
-						<h1>Mañana</h1>
-					<% elsif day.to_date == Date.today.next_day.next_day %>
-						<h1>Pasao</h1>
-					<% else %>
-						<h1><%= day.strftime("%A %u %b")%></h1>
-					<% end %>
-					<table class="table table-condensed table-hover table-settings">
-						<tr class=>
-							<th> Nombre </th>
-							<th> Eliminar </th>
-						</tr> 
-						<% for task in current_user.tasks.incomplete.by_day(day) %>
-							<%= display_task(task) %>
+<div class="page red-border">	
+	<div class= "container blue-border">
+		<div class= "row green-border">
+			<div class= "col-sm-6 col-xs-12 yellow-border">
+				<div class="table-heigth border">
+					<% for day in current_user.days_with_tasks.sort %>
+						<% if day.to_date == Date.today %>
+							<h2>Hoy</h2>
+						<% elsif day.to_date == Date.today.next_day %>
+							<h2>Mañana</h2>
+						<% elsif day.to_date == Date.today.next_day.next_day %>
+							<h2>Pasao</h2>
+						<% else %>
+							<h2><%= day.strftime("%A %u %b")%></h2>
 						<% end %>
-					</table>
-				<% end %>
+						<table class="table table-condensed table-hover table-settings border">
+							<tr class=>
+								<th> Nombre </th>
+								<th> Eliminar </th>
+							</tr> 
+							<% for task in current_user.tasks.by_day(day) %>
+								<%= display_task(task) %>
+							<% end %>
+						</table>
+					<% end %>
+				</div>
 			</div>
-		</div>
 
-		<div class= "col-sm-6 hidden-xs">
-			<h1> Sidebar </h1>
+			<div class= "col-sm-6 hidden-xs yellow-border">
+				<h1> Sidebar </h1>
+			</div>
+			
 		</div>
-		
 	</div>
-</div>
 
 
-
-
-
-<%= render 'tasks/form_for_task' %>
+	<div class="form-for-task border">
+		<%= render 'tasks/form_for_task' %>
+	</div>
 </div>
 
 

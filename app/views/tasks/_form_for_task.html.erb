@@ -5,7 +5,7 @@
 	<%= f.hidden_field :due_date, value: Time.zone.now %>
 	<%= f.hidden_field :complete, value: false %>  <!-- remove this after migration of default -->
 
-	<div class="form-for-task">
+	
 		<ul>
 		<li class="text-field"> 
 			<%= f.text_field :name, layout: :horizontal, hide_label: :true, placeholder: "Agregar tarea"  %>
@@ -13,7 +13,7 @@
 		<li class="submit-button">
 			<%= f.submit "Ok" %>
 		</li>
-	</div>
+	
 
 	
 
