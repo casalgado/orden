@@ -14,7 +14,7 @@ end
 
 seq = 1
 10.times do
-User.find(1).tasks.create!(name: "Tarea#{seq}", due_date: (Time.now + (seq*5000)) )
+User.find(1).tasks.create!(name: "Tarea#{seq}", due_date: (Time.zone.now + (seq*5000)) )
 	seq += 1
 end
 

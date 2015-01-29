@@ -5,4 +5,14 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :tasks
+
+  # Returns an array of days where user has tasks. 
+  def days_with_tasks
+  	days = []
+  	self.tasks.each do |task|
+  		days << task.due_date.to_date
+  	end	
+  	days.uniq!
+  end
+
 end
