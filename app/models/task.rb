@@ -4,6 +4,10 @@ class Task < ActiveRecord::Base
 
   belongs_to :user
 
+  # Callbacks
+
+  before_create :interpret_string
+
   # Scopes
 
   scope :completed,  -> { where(complete: true)  }
@@ -29,6 +33,13 @@ class Task < ActiveRecord::Base
   	else
   		nil
   	end 
+  end
+
+  private
+
+  def interpret_string
+    self.task
+    
   end
 
 
