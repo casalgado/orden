@@ -1,7 +1,7 @@
 
 
 
-<div>	
+<div class="page">	
 <div class= "container">
 	<div class= "row">
 		<div class= "col-sm-6 col-xs-12">
@@ -14,7 +14,7 @@
 					<% elsif day.to_date == Date.today.next_day.next_day %>
 						<h1>Pasao</h1>
 					<% else %>
-						<h1><%= day.strftime("%A %u")%></h1>
+						<h1><%= day.strftime("%A %u %b")%></h1>
 					<% end %>
 					<table class="table table-condensed table-hover table-settings">
 						<tr class=>
