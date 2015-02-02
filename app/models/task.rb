@@ -20,19 +20,21 @@ class Task < ActiveRecord::Base
 
   # Methods
 
-
-  # Determies if and by how many days a task is overdue. 
+  # Determies if and by how many days a task is overdue.
   def status
-  	num = Date.today.day - self.due_date.day
-  	if num == 3
-  		"danger" 
-  	elsif num == 2
-  		"warning"
-  	elsif num == 1
-  		"info"
-  	else
-  		nil
-  	end 
+  	Date.today.day - self.due_date.day
+  end
+
+  # Returns status as a string to be used by display_task helper.
+
+  def status_class
+    if status >= 3
+      "danger" 
+    elsif status == 2
+      "warning"
+    elsif status == 1
+      "info"
+    end 
   end
 
   # private -- tests not working when methods below are private. 

@@ -2,8 +2,9 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'spec_helper'
 require 'rspec/rails'
-require 'rspec/autorun'
 ActiveRecord::Migration.check_pending!
+require 'simplecov'
+SimpleCov.start 'rails'
 
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

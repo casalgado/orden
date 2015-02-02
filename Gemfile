@@ -28,6 +28,8 @@ group :development, :test do
 	gem 'debugger', '1.6.8'
 	gem 'mailcatcher'
 	gem 'timecop'
+	gem 'simplecov'
+	gem 'simplecov-rcov'
 end
 
 group :test do
