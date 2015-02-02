@@ -1,36 +1,41 @@
-
-
-
-	
-<div class= "container">
-	<div class= "row">
-		<div class= "col-sm-6 col-xs-12">
-			<h1>Completadas</h1>
-			<div class="table-heigth">
-				<table class="table table-condensed table-hover table-settings">
-					<tr>
-						<th> Nombre </th>
-						<th> Estado </th>
-					</tr> 
-					<% for task in @tasks %>
-					<tr>
-						<td><%= link_to("#{task.name}", '#') %> </td>
-						<td><%= link_to("Ok", task_complete_path(task)) %> </td>
-					</tr>
+<div class="page ">	
+	<div class= "container ">
+		<div class= "row ">
+			<div class= "col-sm-6 col-xs-12 ">
+				<div class="table-heigth ">
+					<% if current_user.days_with_tasks %>
+						<% current_user.agenda_hash.each do |key, value| %>
+							<h6> <%= key %> </h6>
+							<table class="table table-condensed table-hover table-settings ">
+								<tr class=>
+									<th class=> Nombre </th>
+									<th class=> Eliminar </th>
+								</tr> 
+								<% value.each do |task| %>
+									<%= display_task(task) %>
+								<% end %>
+							</table>
+						<% end %>
+					<% else %>
+						<h3> No tasks in schedule </h3>
 					<% end %>
-				</table>
-
-				
+				</div>
 			</div>
-		</div>
 
-		<div class= "col-sm-6 hidden-xs">
-			<h1> Sidebar </h1>
+			<div class= "col-sm-6 hidden-xs ">
+				<h1> Sidebar </h1>
+				<h5> now <%= Time.now.hour %> </h5> 
+				<h5> zone <%= Time.zone.now.hour %> </h5> 
+			</div>
+			
 		</div>
-		
+	</div>
+
+
+	<div class="form-for-task ">
+		<%= render 'tasks/form_for_task' %>
 	</div>
 </div>
-
 
 
 

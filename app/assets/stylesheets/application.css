@@ -17,6 +17,9 @@
 	height: 100%;
 }
 
+.bigger-font {
+	font-size: 130%;
+}
 
 .table-heigth {
 	margin-bottom: 40px;

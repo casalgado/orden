@@ -9,9 +9,7 @@ class TasksController < ApplicationController
   end
 
   def show
-    @footer = false
-    @task  = Task.new
-    @tasks = current_user.tasks.incomplete.order("due_date ASC")
+    @task = Task.find(params[:id])
   end
 
   def complete
@@ -21,6 +19,12 @@ class TasksController < ApplicationController
   end
 
   def index
+    @footer = false
+    @task  = Task.new
+    @tasks = current_user.tasks.incomplete.order("due_date ASC")
+  end
+
+  def completed
     @tasks = current_user.tasks.completed.order("name ASC")
   end
 
