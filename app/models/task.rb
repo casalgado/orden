@@ -22,7 +22,7 @@ class Task < ActiveRecord::Base
 
   # Determies if and by how many days a task is overdue.
   def status
-  	Date.today.day - self.due_date.day
+  	(Date.today - due_date.to_date).to_i
   end
 
   # Returns status as a string to be used by display_task helper.
