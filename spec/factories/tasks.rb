@@ -1,9 +1,11 @@
+
+
 FactoryGirl.define do
   factory :task do
     user nil
-name "MyString"
-due_date "2015-01-19 13:07:36"
-complete false
+		name "example task"
+		due_date "2015-2-25 13:07:36"
+		complete false
   end
 
 end

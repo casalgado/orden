@@ -6,31 +6,37 @@
 		<div class= "row ">
 			<div class= "col-sm-6 col-xs-12 ">
 				<div class="table-heigth ">
-					<% for day in current_user.days_with_tasks.sort %>
-						<% if day.to_date == Date.today %>
-							<h3>Hoy</h3>
-						<% elsif day.to_date == Date.today.next_day %>
-							<h3>Mañana</h3>
-						<% elsif day.to_date == Date.today.next_day.next_day %>
-							<h3>Pasao</h3>
-						<% else %>
-							<h3><%= day.strftime("%A %u %b")%></h3>
-						<% end %>
-						<table class="table table-condensed table-hover table-settings ">
-							<tr class=>
-								<th class=> Nombre </th>
-								<th class=> Eliminar </th>
-							</tr> 
-							<% for task in current_user.tasks.incomplete.by_day(day) %>
-								<%= display_task(task) %>
+					<% if current_user.days_with_tasks %>
+						<% for day in current_user.days_with_tasks.sort %>
+							<% if day.to_date == Date.today %>
+								<h3>Hoy</h3>
+							<% elsif day.to_date == Date.today.next_day %>
+								<h3>Mañana</h3>
+							<% elsif day.to_date == Date.today.next_day.next_day %>
+								<h3>Pasao</h3>
+							<% else %>
+								<h3><%= day.strftime("%A %-d %b")%></h3>
 							<% end %>
-						</table>
+							<table class="table table-condensed table-hover table-settings ">
+								<tr class=>
+									<th class=> Nombre </th>
+									<th class=> Eliminar </th>
+								</tr> 
+								<% for task in current_user.tasks.incomplete.by_day(day) %>
+									<%= display_task(task) %>
+								<% end %>
+							</table>
+						<% end %>
+					<% else %>
+						<h3> No tasks in schedule </h3>
 					<% end %>
 				</div>
 			</div>
 
 			<div class= "col-sm-6 hidden-xs ">
 				<h1> Sidebar </h1>
+				<h5> now <%= Time.now.hour %> </h5> 
+				<h5> zone <%= Time.zone.now.hour %> </h5> 
 			</div>
 			
 		</div>

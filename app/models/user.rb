@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   	self.tasks.incomplete.each do |task|
   		days << task.due_date.to_date
   	end	
-  	days.uniq!
+  	days.uniq
   end
 
 end

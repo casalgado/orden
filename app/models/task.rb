@@ -35,44 +35,45 @@ class Task < ActiveRecord::Base
   	end 
   end
 
-  private
+  # private -- tests not working when methods below are private. 
 
   def interpret_string
-    interpret = []
-    wday_array = ['d', 'l', 'm', 'c', 'j', 'v', 's']
-    array = self.name.split(" ")
-    dupli = array.dup
-    array.each do |element|
-      if element[0] == "."
-        interpret << element[1..-1]
-        dupli.delete(element)
+    string_input      = self.name.split(" ")
+    values_to_convert = []
+    self.name.split(" ").each do |key|
+      if key[0] == "."
+        values_to_convert << key[1..-1]
+        string_input.delete(key)
       end
     end
-
-    interpret.each do |element|
-    if element.to_i == 0
-      wday_array.each_with_index do |letter, index|
-        element.gsub!(letter, "#{index}")
-      end
-      element = element.to_s
-      if element.length > 1
-        increment = element[0].to_i + ( 7 * (element.length - 1) )
-      else
-        increment = element.to_i
-      end
-      next_day = Date.today + increment - Date.today.wday # solo funciona para wday > Date.today.wday
-      @date_string = "#{next_day.year}-#{next_day.mon}-#{next_day.day}"
-    else
-      if element.to_i < 100
-        @time_string = element + ":00:00"
-      else
-        @time_string = element[0..-3] + ":" + element[-2..-1] + ":00"
-      end
-    end
+    self.due_date = to_time(values_to_convert)
+    self.name     = string_input.join(" ").capitalize
   end
-  new_date = @date_string + " " + @time_string
-  self.due_date = new_date
-  self.name = dupli.join(" ").capitalize
+
+  def to_time values_to_convert # returns time object
+    date = Date.today
+    time = [Time.zone.now.hour, Time.zone.now.min]
+    values_to_convert.each do |key|
+      if key.to_i == 0
+        date = key_to_date(key)
+      else
+        time = key_to_time(key)
+      end
+    end
+    Time.new(date.year, date.mon, date.mday, time[0], time[1], 00)
+  end
+
+  def key_to_date key # returns date object
+    wday_array = ['d', 'l', 'm', 'c', 'j', 'v', 's']
+    wday = wday_array.index(key[0])
+    increment = wday + ( 7 * (key.length - 1) ) - Date.today.wday 
+    increment += 7 if wday <= Date.today.wday
+    next_day  = Date.today + increment
+  end
+
+  def key_to_time key # returns array
+    key += "00" if key.to_i < 100
+    [key[0..-3].to_i, key[-2..-1].to_i]
   end
 
 

@@ -19,6 +19,7 @@ end
 
 
 group :development, :test do
+	gem 'terminal-notifier-guard'
 	gem "rspec-rails", "3.1.0"
 	gem 'sqlite3', '1.3.10'
 	gem "factory_girl_rails", "4.5.0"
@@ -26,6 +27,7 @@ group :development, :test do
 	gem "guard-rspec", '4.3.1'
 	gem 'debugger', '1.6.8'
 	gem 'mailcatcher'
+	gem 'timecop'
 end
 
 group :test do
