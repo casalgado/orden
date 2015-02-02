@@ -15,4 +15,23 @@ class User < ActiveRecord::Base
   	days.uniq
   end
 
+  def agenda_hash
+    hash = Hash.new
+    days_with_tasks.sort.each do |day|
+      if day <= Date.today
+        hash[Date.today.strftime("%A %-d %b")] = []
+      else
+        hash[day.strftime("%A %-d %b")] = []
+      end
+    end
+    tasks.incomplete.order('due_date asc').each do |task|
+      if task.due_date <= Date.today
+        hash[Date.today.strftime("%A %-d %b")] << task
+      else
+        hash[task.due_date.strftime("%A %-d %b")] << task
+      end
+    end
+    hash
+  end
+
 end
