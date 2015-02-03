@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(task_params)
     @task.save
-    redirect_to task_path(current_user)
+    redirect_to tasks_path(current_user)
   end
 
   def show
@@ -15,13 +15,14 @@ class TasksController < ApplicationController
   def complete
     @task = Task.find(params[:task_id])
     @task.update(complete: !@task.complete)
-    redirect_to task_path(current_user)
+    redirect_to tasks_path(current_user)
   end
 
   def index
     @footer = false
     @task  = Task.new
     @tasks = current_user.tasks.incomplete.order("due_date ASC")
+    gon.tasks = Task.for_calendar(@tasks)
   end
 
   def completed

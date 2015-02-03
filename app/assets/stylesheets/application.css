@@ -10,11 +10,16 @@
  *
  *= require_self
  *= require rails_bootstrap_forms
+ *= require fullcalendar
  *= require_tree .
  */
 
 .page {
 	height: 100%;
+}
+
+#calendar {
+	margin-right: 23px;
 }
 
 .bigger-font {

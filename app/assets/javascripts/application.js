@@ -13,4 +13,26 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require fullcalendar
 //= require_tree .
+
+
+var ready = function() {
+
+    $('#calendar').fullCalendar({
+    	 events: gon.tasks,
+        theme: true,
+        height: 550,
+        header: {left:  'today',
+        	   center: 'prev title next',
+    			right:  'month,agendaWeek,agendaDay' },
+    	themeButtonIcons: false,
+    	minTime: '08:00',
+    	maxTime: '21:00'
+    })  
+};
+
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
+

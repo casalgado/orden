@@ -20,13 +20,24 @@ class Task < ActiveRecord::Base
 
   # Methods
 
+
+  # Returns array of tasks that fullcalendar can interpret.
+  def self.for_calendar(array)
+    array.map! { |task| task.to_event_format }
+  end
+
+  # Converts to event_format to be read by full_calendar.
+  def to_event_format
+    new_time = self.due_date + 3600
+    event = {title: self.name, start: self.due_date, end: new_time, backgroundColor: '#88c656', borderColor: '#88c656'}
+  end
+
   # Determies if and by how many days a task is overdue.
   def status
   	(Date.today - due_date.to_date).to_i
   end
 
   # Returns status as a string to be used by display_task helper.
-
   def status_class
     if status >= 3
       "danger" 
