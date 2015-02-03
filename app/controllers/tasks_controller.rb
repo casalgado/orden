@@ -15,7 +15,7 @@ class TasksController < ApplicationController
   def complete
     @task = Task.find(params[:task_id])
     @task.update(complete: !@task.complete)
-    redirect_to tasks_path(current_user)
+    redirect_to tasks_path
   end
 
   def index
@@ -30,9 +30,13 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @task = Task.find(params[:id])
   end
 
   def update
+    @task = Task.find(params[:id])
+    @task.update!(task_params)
+    redirect_to tasks_path
   end
 
   def destroy

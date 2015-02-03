@@ -1,2 +1,13 @@
-<h1>Tasks#edit</h1>
-<p>Find me in app/views/tasks/edit.html.erb</p>
+
+
+<%= form_for @task do |f| %>
+
+	<%= f.label :name, 'Name' %>
+	<%= f.text_field :name  %>
+
+	<%= f.label :due_date, 'Date' %>
+	<%= f.datetime_select :due_date, minute_step: 15  %>
+	
+	<%= f.submit 'save' %>
+
+<% end %>

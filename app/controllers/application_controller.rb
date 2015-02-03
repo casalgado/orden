@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   # El siguiente method es para determinar adonde va devise leugo del sign-in
 
   def after_sign_in_path_for(resource)
-    task_path(resource)
+    tasks_path(resource)
   end
 
   # De aqui hasta -- es para agregar custom fields a devise
